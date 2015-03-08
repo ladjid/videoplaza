@@ -28,7 +28,6 @@
 
 		public function main() {
 			
-			//http://se-showroom.videoplaza.tv/proxy/distributor/v2?tt=p&t=sport,beauty&f=&s=9adfc0d5-645a-4b3c-bdf0-91824730a30f&rnd=[random]&rt=vast_2.0
 			var mediaSource = (root.loaderInfo.parameters["mediasource"]) ? root.loaderInfo.parameters["mediasource"] : "big_buck_bunny_720p_h264.flv";
 			var preroll = (root.loaderInfo.parameters["preroll"]) ? root.loaderInfo.parameters["preroll"] : "http://se-showroom.videoplaza.tv/proxy/distributor/v2?tt=p&t=sport,beauty&f=&s=9adfc0d5-645a-4b3c-bdf0-91824730a30f&rnd=[random]&rt=vast_2.0";
 			var postRoll = (root.loaderInfo.parameters["postroll"]) ? root.loaderInfo.parameters["postroll"]: "http://se-showroom.videoplaza.tv/proxy/distributor/v2?tt=p&t=sport,beauty&f=&s=9adfc0d5-645a-4b3c-bdf0-91824730a30f&rnd=[random]&rt=vast_2.0";

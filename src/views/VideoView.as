@@ -132,27 +132,25 @@ package views
 		{
 			
 			if (ev.info.code == "NetStream.Play.Stop") {
-				
-				if (Math.round(totalDuration) == Math.round(netStream.time)) {
+			
+				currentSequenceCount++;
 					
-					currentSequenceCount++;
-					
-					if (currentSequenceCount <= playSequence.length-1) {
-						startPlay();
-					}
-					
-					if (currentSequenceCount == playSequence.length) {
-						
-						_repository.movePlayPauseBtnToPlay();
-						playSequence = [];
-						var mainContent = { name:'mainContent', details:_repository.getMediaSource() };
-						playSequence.push(mainContent);
-						currentSequenceCount = 0;
-						startPlay();
-						netStream.pause();
-						removeChilds();
-					}
+				if (currentSequenceCount <= playSequence.length-1) {
+					startPlay();
 				}
+					
+				if (currentSequenceCount == playSequence.length) {
+						
+					_repository.movePlayPauseBtnToPlay();
+					playSequence = [];
+					var mainContent = { name:'mainContent', details:_repository.getMediaSource() };
+					playSequence.push(mainContent);
+					currentSequenceCount = 0;
+					startPlay();
+					netStream.pause();
+					removeChilds();
+				}
+				
 			}
 			
 			if (ev.info.code == "NetStream.Buffer.Empty") {
