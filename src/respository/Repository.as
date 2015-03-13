@@ -62,7 +62,7 @@ package respository
 			for (var i:int = 0; i <rolls.length ; i++) 
 			{
 				var callback = (rolls[i].name == "preRoll") ? preRollLoaded : postRollLoaded;
-				getVast(rolls[i].preRollSource, callback);
+				getVast(rolls[i].rollSource, callback);
 			}
 			
 			_mainRoot.addEventListener(MouseEvent.MOUSE_UP, stopScrubbarThumbDragging, false);
@@ -74,11 +74,6 @@ package respository
 			playerScrubbarPosLimit = _playerController.scrubbarControll.scubbarBg.width - _playerController.scrubbarControll.scrubbarThumb.width;
 			volumeThumbScrubbarPosLimit = _playerController.volumeControll.volumeBg.width - _playerController.volumeControll.volumeThumb.width;
 			setupPlayerInteractions();
-			
-			if (rolls.length == 0) {
-				
-				_mainRoot.IfAddFoundOrNot(false);
-			}
 		}
 		
 		

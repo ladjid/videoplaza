@@ -34,35 +34,33 @@
 			
 			if (preroll != "") {
 				
-				rollsArray.push({preRollSource:preroll, name:"preRoll"})
+				rollsArray.push({rollSource:preroll, name:"preRoll"})
 			}
 			
 			if (postRoll != "") {
 				
-				rollsArray.push({preRollSource:postRoll, name:"postRoll"})
+				rollsArray.push({rollSource:postRoll, name:"postRoll"})
 			}
 			
 			_repository.init(_service, _videoView, _playerController, _bufferingAnimation, mediaSource, rollsArray, this);
-			_repository.addEventListener(VastParsedEvent.VAST_PARSED, vastParsed, false);
+			
+			if (rollsArray.length == 0) {
+				
+				addVideoAndController();
+				
+			}else 
+			{
+				_repository.addEventListener(VastParsedEvent.VAST_PARSED, vastParsed, false);
+			}
 			
 		}
 		
 		public function vastParsed(ev:VastParsedEvent):void 
 		{
-			IfAddFoundOrNot(true);
-		}
-		
-		public function IfAddFoundOrNot(AdFound:Boolean):void 
-		{
-			if(AdFound){
-				rollsCount++;
-				if (rollsCount == rollsArray.length) {
-					addVideoAndController();
-				}
-			}else 
-			{
+			rollsCount++;
+			if (rollsCount == rollsArray.length) {
 				addVideoAndController();
-			}		
+			}
 		}
 		
 		public function addVideoAndController():void 
